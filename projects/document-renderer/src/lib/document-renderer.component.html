@@ -1,1 +1,60 @@
+<div class="renderer__container">
+  <div class="renderer____content">
+    <ng-container *ngFor="let parent of document">
+      <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
+    </ng-container>
+  </div>
+</div>
 
+<ng-template #parentEl let-parent="parent">
+  <ng-container [ngSwitch]="parent.type">
+    <ng-container *ngSwitchCase="'heading'">
+      <ng-container *ngTemplateOutlet="headingEl; context: {item: parent}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'paragraph'">
+      <ng-container *ngTemplateOutlet="paragraphEl; context: {item: parent}"></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #headingEl let-item="item">
+  <ng-container *ngFor="let children of item.children">
+    <ng-container [ngSwitch]="item.level">
+      <ng-container *ngSwitchCase="1">
+        <ng-container *ngTemplateOutlet="h1; context: {text: children.text}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <ng-container *ngTemplateOutlet="h2; context: {text: children.text}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="3">
+        <ng-container *ngTemplateOutlet="h3; context: {text: children.text}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="4">
+        <ng-container *ngTemplateOutlet="h4; context: {text: children.text}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="5">
+        <ng-container *ngTemplateOutlet="h5; context: {text: children.text}"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="6">
+        <ng-container *ngTemplateOutlet="h6; context: {text: children.text}"></ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #paragraphEl let-item="item">
+  <ng-container *ngFor="let children of item.children">
+    <ng-container *ngTemplateOutlet="p; context: {text: children}"></ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #h1 let-text="text"><h1>{{text}}</h1></ng-template>
+<ng-template #h2 let-text="text"><h2>{{text}}</h2></ng-template>
+<ng-template #h3 let-text="text"><h3>{{text}}</h3></ng-template>
+<ng-template #h4 let-text="text"><h4>{{text}}</h4></ng-template>
+<ng-template #h5 let-text="text"><h5>{{text}}</h5></ng-template>
+<ng-template #h6 let-text="text"><h6>{{text}}</h6></ng-template>
+
+<ng-template #p let-children="text">
+  <p [style.font-weight]="children?.bold ? 'bold' : null">{{children.text}}</p>
+</ng-template>

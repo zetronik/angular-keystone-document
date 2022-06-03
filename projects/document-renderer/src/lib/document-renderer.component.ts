@@ -7,12 +7,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DocumentRendererComponent implements OnInit {
 
-  @Input() document: any
+  @Input() document!: any[]
 
   constructor() {
   }
 
   ngOnInit(): void {
   }
-
 }

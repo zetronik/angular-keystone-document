@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { DocumentRendererComponent } from './document-renderer.component';
+import {BrowserModule} from "@angular/platform-browser";
 
 
 
@@ -7,8 +8,9 @@ import { DocumentRendererComponent } from './document-renderer.component';
   declarations: [
     DocumentRendererComponent
   ],
-  imports: [
-  ],
+    imports: [
+        BrowserModule
+    ],
   exports: [
     DocumentRendererComponent
   ]

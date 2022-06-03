@@ -1,0 +1,11 @@
+.document {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .__content {
+    width: 720px;
+  }
+}

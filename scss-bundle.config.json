@@ -1,0 +1,6 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./projects/document-renderer/src/style/index.scss",
+    "outFile": "./dist/document-renderer/style/index.scss"
+  }
+}

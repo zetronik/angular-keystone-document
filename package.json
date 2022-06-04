@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "lib:build": "ng build document-renderer --watch",
+    "lib:style": "scss-bundle -p scss-bundle.config.json",
+    "lib:build": "ng build document-renderer && npm run lib:style --watch",
+    "lib:watch": "ng build document-renderer --watch",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

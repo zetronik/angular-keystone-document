@@ -1,0 +1,54 @@
+.renderer {
+  &__container {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #2A2828;
+    border-radius: 5px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.subscript, .superscript {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 70%;
+}
+
+.subscript {
+  bottom: -0.6em;
+}
+
+.superscript {
+  top: -0.6em;
+}
+
+.code {
+  background-color: #eff3f6;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: Consolas,Menlo,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+  font-size: 0.875rem;
+  padding: 0 2px;
+}
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}

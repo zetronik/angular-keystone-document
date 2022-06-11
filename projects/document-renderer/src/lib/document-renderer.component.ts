@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DocumentRender} from "./interfaces/renderers.interface";
 
 @Component({
   selector: 'akd-document-renderer',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DocumentRendererComponent implements OnInit {
 
-  @Input() document!: any[]
+  @Input() document!: DocumentRender
 
   constructor() {
   }

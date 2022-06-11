@@ -9,37 +9,7 @@
   }
 }
 
-.bold {
-  font-weight: bold;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.strikethrough {
-  text-decoration: line-through;
-}
-
-.subscript, .superscript {
-  vertical-align: baseline;
-  position: relative;
-  font-size: 70%;
-}
-
-.subscript {
-  bottom: -0.6em;
-}
-
-.superscript {
-  top: -0.6em;
-}
-
-.code {
+code {
   background-color: #eff3f6;
   border-radius: 4px;
   display: inline-block;

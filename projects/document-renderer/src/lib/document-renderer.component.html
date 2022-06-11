@@ -1,9 +1,7 @@
 <div class="renderer__container">
   <div class="renderer____content">
     <ng-container *ngFor="let parent of document">
-      <section [style.text-align]="parent.textAlign">
-        <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
-      </section>
+      <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
     </ng-container>
   </div>
 </div>
@@ -23,51 +21,38 @@
 </ng-template>
 
 <ng-template #headingEl let-item="item">
-  <ng-container *ngFor="let children of item.children">
-    <ng-container [ngSwitch]="item.level">
-      <h1
-        *ngSwitchCase="1"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h1>
-      <h2
-        *ngSwitchCase="2"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h2>
-      <h3
-        *ngSwitchCase="3"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h3>
-      <h4
-        *ngSwitchCase="4"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h4>
-      <h5
-        *ngSwitchCase="5"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h5>
-      <h6
-        *ngSwitchCase="6"
-        [style.font-weight.bold]="children?.bold"
-      >{{children.text}}</h6>
-    </ng-container>
+  <ng-container [ngSwitch]="item.level">
+    <h1 *ngSwitchCase="1" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h1>
+    <h2 *ngSwitchCase="2" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h2>
+    <h3 *ngSwitchCase="3" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h3>
+    <h4 *ngSwitchCase="4" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h4>
+    <h5 *ngSwitchCase="5" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h5>
+    <h6 *ngSwitchCase="6" [style.text-align]="item.textAlign">
+      <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+    </h6>
   </ng-container>
 </ng-template>
 
 <ng-template #paragraphEl let-item="item">
-  <ng-container *ngFor="let children of item.children">
-    <ng-container *ngTemplateOutlet="p; context: {text: children}"></ng-container>
-  </ng-container>
+  <p [style.text-align]="item.textAlign">
+    <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+  </p>
 </ng-template>
 
-<ng-template #p let-children="text">
-  <span
-    [class.subscript]="children?.subscript"
-    [class.superscript]="children?.superscript"
-    [class.bold]="children?.bold"
-    [class.italic]="children?.italic"
-  >
-    {{children.text}}
-  </span>
+<ng-template #children let-item="item">
+  <ng-container *ngFor="let child of item">
+    <span [childrenRender]="child"></span>
+  </ng-container>
 </ng-template>
 
 <ng-template #layoutEl></ng-template>

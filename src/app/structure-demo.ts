@@ -1,27 +1,12 @@
-export const structureDemo = [
+import {DocumentRender} from "document-renderer";
+
+export const structureDemo: DocumentRender = [
   {
     "type": "heading",
     "children": [
       {
-        "text": "Heading text config H1"
-      }
-    ],
-    "level": 1
-  },
-  {
-    "type": "heading",
-    "children": [
-      {
-        "text": "Heading text config H2"
-      }
-    ],
-    "level": 2
-  },
-  {
-    "type": "heading",
-    "children": [
-      {
-        "text": "Heading text config H3"
+        "text": "Heading text config H1",
+        "strikethrough": true
       }
     ],
     "level": 3
@@ -30,16 +15,42 @@ export const structureDemo = [
     "type": "heading",
     "children": [
       {
-        "text": "Heading text config H4"
+        "text": "Heading text config H2",
+        "bold": true
       }
     ],
-    "level": 4
+    "level": 2,
+    "textAlign": "center"
   },
   {
     "type": "heading",
     "children": [
       {
-        "text": "Heading text config h5"
+        "text": "Heading text config H3",
+        "underline": true
+      }
+    ],
+    "level": 3,
+    "textAlign": "end"
+  },
+  {
+    "type": "heading",
+    "children": [
+      {
+        "text": "Heading text config H4",
+        "italic": true
+      }
+    ],
+    "level": 4,
+    "textAlign": "center"
+  },
+  {
+    "type": "heading",
+    "children": [
+      {
+        "text": "Heading text config h5",
+        "italic": true,
+        "bold": true
       }
     ],
     "level": 5
@@ -51,14 +62,14 @@ export const structureDemo = [
         "text": "Heading text config h6"
       }
     ],
-    "level": 6
+    "level": 6,
+    "textAlign": "center"
   },
   {
     "type": "paragraph",
     "children": [
       {
-        "text": "Heading text config",
-        "bold": true
+        "text": "Heading text config"
       }
     ],
     "textAlign": "end"
@@ -67,9 +78,15 @@ export const structureDemo = [
     "type": "paragraph",
     "children": [
       {
-        "text": "Heading text config",
-        "bold": true,
-        "italic": true
+        "text": "Heading",
+        "subscript": true
+      },
+      {
+        "text": " "
+      },
+      {
+        "text": "text config",
+        "superscript": true
       }
     ],
     "textAlign": "center"
@@ -98,7 +115,8 @@ export const structureDemo = [
     "children": [
       {
         "text": "Heading text config",
-        "code": true
+        "code": true,
+        "bold": true
       }
     ],
     "textAlign": "end"
@@ -117,7 +135,8 @@ export const structureDemo = [
     "children": [
       {
         "text": "Heading text config",
-        "subscript": true
+        "subscript": true,
+        "strikethrough": true
       }
     ],
     "textAlign": "center"
@@ -127,13 +146,41 @@ export const structureDemo = [
     "children": [
       {
         "text": "Heading text config",
-        "superscript": true
+        "superscript": true,
+        "italic": true,
+        "bold": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Heading text config "
       },
       {
         "text": "Heading text config",
-        "bold": true,
-        "italic": true
+        "subscript": true
+      }
+    ],
+    "textAlign": "center"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Heading text config"
+      }
+    ],
+    "textAlign": "end"
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": ""
       }
     ]
   }
 ]
+

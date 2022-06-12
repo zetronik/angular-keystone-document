@@ -23,7 +23,52 @@
     <ng-container *ngSwitchCase="'ordered-list'">
       <ng-container *ngTemplateOutlet="orderedListEl; context: {item: parent}"></ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'blockquote'">
+      <ng-container *ngTemplateOutlet="blockquoteEl; context: {item: parent}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'divider'">
+      <ng-container *ngTemplateOutlet="dividerEl"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'code'">
+      <ng-container *ngTemplateOutlet="codeEl; context: {item: parent}"></ng-container>
+    </ng-container>
   </ng-container>
+</ng-template>
+
+<ng-template #layoutEl let-item="item">
+  <div class="layout">
+    <div class="layout-container" [grid]="item.layout">
+      <ng-container *ngFor="let container of item.children">
+        <ng-container *ngFor="let parent of container.children">
+          <div class="layout-area">
+            <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #codeEl let-item="item">
+  <div>
+    <ng-container *ngFor="let children of item.children">
+      <pre class="block-code">{{children.text}}</pre>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #dividerEl>
+  <div>
+    <hr class="divider">
+  </div>
+</ng-template>
+
+<ng-template #blockquoteEl let-item="item">
+  <div class="blockquote">
+    <ng-container *ngFor="let parent of item.children">
+      <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
+    </ng-container>
+  </div>
 </ng-template>
 
 <ng-template #unorderedListEl let-item="item">
@@ -84,5 +129,3 @@
     <span [childrenRender]="child"></span>
   </ng-container>
 </ng-template>
-
-<ng-template #layoutEl></ng-template>

@@ -2,6 +2,230 @@ import {DocumentRender} from "document-renderer";
 
 export const structureDemo: DocumentRender = [
   {
+    "type": "layout",
+    "layout": [
+      1,
+      1
+    ],
+    "children": [
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "bold": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "heading",
+            "children": [
+              {
+                "text": "text"
+              }
+            ],
+            "level": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "layout",
+    "layout": [
+      1,
+      1,
+      1
+    ],
+    "children": [
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "italic": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "heading",
+            "children": [
+              {
+                "text": "text"
+              }
+            ],
+            "level": 4
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text"
+              }
+            ],
+            "textAlign": "center"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "layout",
+    "layout": [
+      1,
+      2
+    ],
+    "children": [
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "heading",
+            "children": [
+              {
+                "text": "text"
+              }
+            ],
+            "level": 4
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "strikethrough": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "layout",
+    "layout": [
+      2,
+      1
+    ],
+    "children": [
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "subscript": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "underline": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "layout",
+    "layout": [
+      1,
+      2,
+      1
+    ],
+    "children": [
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "text",
+                "code": true
+              }
+            ],
+            "textAlign": "end"
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "heading",
+            "children": [
+              {
+                "text": "text"
+              }
+            ],
+            "level": 2,
+            "textAlign": "center"
+          }
+        ]
+      },
+      {
+        "type": "layout-area",
+        "children": [
+          {
+            "type": "code",
+            "children": [
+              {
+                "text": "text"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "code",
+    "children": [
+      {
+        "text": "wefwe\nwef\nwe\nwe\nf\nwe\n"
+      }
+    ]
+  },
+  {
     "type": "unordered-list",
     "children": [
       {
@@ -219,6 +443,17 @@ export const structureDemo: DocumentRender = [
   {
     "type": "blockquote",
     "children": [
+      {
+        "type": "heading",
+        "children": [
+          {
+            "text": "Heading text config H3",
+            "underline": true
+          }
+        ],
+        "level": 3,
+        "textAlign": "end"
+      },
       {
         "type": "paragraph",
         "children": [

@@ -1,5 +1,5 @@
 export type DocumentRender = DocumentChildren[];
-export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote);
+export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote | ICode | ILayout);
 
 export interface IParentHeading {
   type: 'heading';
@@ -45,7 +45,27 @@ export interface IDivider {
 
 export interface IBlockquote {
   type: 'blockquote';
-  children: IParentParagraph[] | IParentHeading[]
+  children: DocumentChildren[];
+}
+
+export interface ICode {
+  type: 'code';
+  children: [
+    {
+      text: string
+    }
+  ];
+}
+
+export interface ILayout {
+  type: 'layout';
+  layout: number[];
+  children: ILayoutArea[];
+}
+
+export interface ILayoutArea {
+  type: 'layout-area';
+  children: DocumentChildren[];
 }
 
 export interface IChildren {

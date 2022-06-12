@@ -136,7 +136,7 @@
 </ng-template>
 
 <ng-template #linkEl let-item="item">
-  <a [href]="item.href" target="_blank">
+  <a [href]="item.href" target="_blank" class="link">
     <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
   </a>
 </ng-template>

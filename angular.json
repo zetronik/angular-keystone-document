@@ -109,7 +109,7 @@
         }
       }
     },
-    "document-renderer": {
+    "angular-keystone-document-renderer": {
       "projectType": "library",
       "root": "projects/document-renderer",
       "sourceRoot": "projects/document-renderer/src",

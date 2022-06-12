@@ -17,7 +17,37 @@
     <ng-container *ngSwitchCase="'layout'">
       <ng-container *ngTemplateOutlet="layoutEl; context: {item: parent}"></ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'unordered-list'">
+      <ng-container *ngTemplateOutlet="unorderedListEl; context: {item: parent}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'ordered-list'">
+      <ng-container *ngTemplateOutlet="orderedListEl; context: {item: parent}"></ng-container>
+    </ng-container>
   </ng-container>
+</ng-template>
+
+<ng-template #unorderedListEl let-item="item">
+  <ul>
+    <ng-container *ngFor="let list of item.children">
+      <li>
+        <ng-container *ngFor="let itemList of list.children">
+          <ng-container *ngTemplateOutlet="children; context: {item: itemList.children}"></ng-container>
+        </ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</ng-template>
+
+<ng-template #orderedListEl let-item="item">
+  <ol>
+    <ng-container *ngFor="let list of item.children">
+      <li>
+        <ng-container *ngFor="let itemList of list.children">
+          <ng-container *ngTemplateOutlet="children; context: {item: itemList.children}"></ng-container>
+        </ng-container>
+      </li>
+    </ng-container>
+  </ol>
 </ng-template>
 
 <ng-template #headingEl let-item="item">

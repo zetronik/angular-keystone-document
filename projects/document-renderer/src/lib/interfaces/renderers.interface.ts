@@ -1,17 +1,51 @@
 export type DocumentRender = DocumentChildren[];
-export type DocumentChildren = (IParentHeading | IParentParagraph);
+export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote);
 
 export interface IParentHeading {
-  type: 'heading'
+  type: 'heading';
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: IChildren[];
-  textAlign?: 'center' | 'end'
+  textAlign?: 'center' | 'end';
 }
 
 export interface IParentParagraph {
-  type: 'paragraph'
+  type: 'paragraph';
   children: IChildren[];
-  textAlign?: 'center' | 'end'
+  textAlign?: 'center' | 'end';
+}
+
+export interface IUnorderedList {
+  type: 'unordered-list';
+  children: IListItem[];
+}
+
+export interface IOrderedList {
+  type: 'ordered-list';
+  children: IListItem[];
+}
+
+export interface IListItem {
+  type: 'list-item';
+  children: IListItemContent[];
+}
+
+export interface IListItemContent {
+  type: 'list-item-content';
+  children: IChildren[];
+}
+
+export interface IDivider {
+  type: 'divider',
+  children: [
+    {
+      text: ''
+    }
+  ];
+}
+
+export interface IBlockquote {
+  type: 'blockquote';
+  children: IParentParagraph[] | IParentHeading[]
 }
 
 export interface IChildren {

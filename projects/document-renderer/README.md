@@ -2,23 +2,21 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
 
-## Code scaffolding
+## Import module
 
-Run `ng generate component component-name --project document-renderer` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project document-renderer`.
-> Note: Don't forget to add `--project document-renderer` or else it will be added to the default project in your `angular.json` file. 
+`import {DocumentRendererModule} from "angular-keystone-document-renderer";`
 
-## Build
+## Added module
 
-Run `ng build document-renderer` to build the project. The build artifacts will be stored in the `dist/` directory.
+`imports: [
+  BrowserModule,
+  DocumentRendererModule
+],`
 
-## Publishing
+## Import style
 
-After building your library with `ng build document-renderer`, go to the dist folder `cd dist/document-renderer` and run `npm publish`.
+`@import "angular-keystone-document-renderer/style";`  
 
-## Running unit tests
+## Use Component
 
-Run `ng test document-renderer` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`<akd-document-renderer [document]="demo"></akd-document-renderer>`

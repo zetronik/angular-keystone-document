@@ -1,16 +1,17 @@
 export type DocumentRender = DocumentChildren[];
 export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote | ICode | ILayout);
+export type Children = (IChildren | ILink)[]
 
 export interface IParentHeading {
   type: 'heading';
   level: 1 | 2 | 3 | 4 | 5 | 6;
-  children: IChildren[];
+  children: Children;
   textAlign?: 'center' | 'end';
 }
 
 export interface IParentParagraph {
   type: 'paragraph';
-  children: IChildren[];
+  children: Children;
   textAlign?: 'center' | 'end';
 }
 
@@ -31,7 +32,7 @@ export interface IListItem {
 
 export interface IListItemContent {
   type: 'list-item-content';
-  children: IChildren[];
+  children: Children;
 }
 
 export interface IDivider {
@@ -41,6 +42,12 @@ export interface IDivider {
       text: ''
     }
   ];
+}
+
+export interface ILink {
+  type: 'link';
+  href: string;
+  children: IChildren[];
 }
 
 export interface IBlockquote {

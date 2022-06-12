@@ -126,6 +126,18 @@
 
 <ng-template #children let-item="item">
   <ng-container *ngFor="let child of item">
-    <span [childrenRender]="child"></span>
+    <ng-container *ngIf="child?.type === 'link'; else itemEl">
+      <ng-container *ngTemplateOutlet="linkEl; context: {item: child}"></ng-container>
+    </ng-container>
+    <ng-template #itemEl>
+      <span  [childrenRender]="child"></span>
+    </ng-template>
   </ng-container>
 </ng-template>
+
+<ng-template #linkEl let-item="item">
+  <a [href]="item.href" target="_blank">
+    <ng-container *ngTemplateOutlet="children; context: {item: item.children}"></ng-container>
+  </a>
+</ng-template>
+

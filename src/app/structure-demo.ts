@@ -2,6 +2,46 @@ import {DocumentRender} from "document-renderer";
 
 export const structureDemo: DocumentRender = [
   {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": ""
+      },
+      {
+        "type": "link",
+        "href": "https://www.google.com",
+        "children": [
+          {
+            "text": "link",
+            "bold": true,
+            "italic": true,
+            "underline": true
+          }
+        ]
+      },
+    ],
+    "textAlign": "center"
+  },
+  {
+    "type": "heading",
+    "textAlign": "end",
+    "children": [
+      {
+        "text": ""
+      },
+      {
+        "type": "link",
+        "href": "https://www.google.com",
+        "children": [
+          {
+            "text": "LINK"
+          }
+        ]
+      },
+    ],
+    "level": 1
+  },
+  {
     "type": "layout",
     "layout": [
       1,

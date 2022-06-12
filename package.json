@@ -9,7 +9,8 @@
     "lib:build": "ng build angular-keystone-document-renderer && npm run lib:style",
     "lib:watch": "ng build angular-keystone-document-renderer --watch",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "publish": "cd dist/document-renderer && npm publish"
   },
   "private": true,
   "dependencies": {

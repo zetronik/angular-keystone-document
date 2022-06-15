@@ -1,6 +1,30 @@
 export type DocumentRender = DocumentChildren[];
-export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote | ICode | ILayout);
+export type DocumentChildren = (IParentHeading | IParentParagraph | IUnorderedList | IOrderedList | IDivider | IBlockquote | ICode | ILayout | IComponentBlock);
 export type Children = (IChildren | ILink)[]
+export type ComponentChildren = (IComponentPropBlock | IComponentPropInline)[]
+
+export interface IComponentBlock {
+  type: 'component-block';
+  component: string;
+  props: any;
+  children: ComponentChildren;
+}
+
+export interface IComponentPropBlock {
+  type: 'component-block-prop';
+  propPath: ['content'];
+  children: IParentParagraph[];
+}
+
+export interface IComponentPropInline {
+  type: 'component-inline-prop';
+  propPath: ['attribution'];
+  children: ChildrenInlineProp[]
+}
+
+export interface ChildrenInlineProp {
+  text: string
+}
 
 export interface IParentHeading {
   type: 'heading';

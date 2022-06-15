@@ -2,6 +2,44 @@ import {DocumentRender} from "document-renderer";
 
 export const structureDemo: DocumentRender = [
   {
+    "type": "component-block",
+    "component": "quote",
+    "props": {},
+    "children": [
+      {
+        "type": "component-block-prop",
+        "propPath": [
+          "content"
+        ],
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Quote text",
+                "bold": true,
+                "keyboard": true,
+                "italic": true,
+                "underline": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "component-inline-prop",
+        "propPath": [
+          "attribution"
+        ],
+        "children": [
+          {
+            "text": "Attribution"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "type": "paragraph",
     "children": [
       {

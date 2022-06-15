@@ -1,5 +1,5 @@
 <div class="renderer__container">
-  <div class="renderer____content">
+  <div class="renderer__content">
     <ng-container *ngFor="let parent of document">
       <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
     </ng-container>
@@ -31,6 +31,58 @@
     </ng-container>
     <ng-container *ngSwitchCase="'code'">
       <ng-container *ngTemplateOutlet="codeEl; context: {item: parent}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'component-block'">
+      <ng-container *ngTemplateOutlet="componentEl; context: {item: parent}"></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #componentEl let-item="item">
+  <div [attr.data-component]="item.component">
+    <ng-container *ngFor="let children of item.children">
+      <ng-container [ngSwitch]="children.type">
+        <ng-container *ngSwitchCase="'component-block-prop'">
+          <ng-container *ngTemplateOutlet="componentBlock; context: {item: children}"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'component-inline-prop'">
+          <ng-container *ngTemplateOutlet="componentInline; context: {item: children}"></ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #componentBlock let-item="item">
+  <ng-container [ngSwitch]="item.propPath[0]">
+    <ng-container *ngSwitchCase="'content'">
+      <div [attr.data-prop]="'content'">
+        <ng-container *ngFor="let parent of item.children">
+          <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'attribution'">
+      <div [attr.data-prop]="'attribution'">
+<!--        TODO: added inline-->
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #componentInline let-item="item">
+  <ng-container [ngSwitch]="item.propPath[0]">
+    <ng-container *ngSwitchCase="'content'">
+      <div [attr.data-prop]="'content'">
+        <ng-container *ngFor="let parent of item.children">
+          <ng-container *ngTemplateOutlet="parentEl; context: {parent}"></ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'attribution'">
+      <div [attr.data-prop]="'attribution'">
+<!--        TODO: added inline-->
+      </div>
     </ng-container>
   </ng-container>
 </ng-template>

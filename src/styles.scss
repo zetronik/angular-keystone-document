@@ -1,2 +1,6 @@
-//@import "../projects/document-renderer/src/style";
-@import "angular-keystone-document-renderer/style";
+@import "../projects/document-renderer/src/style";
+
+body {
+  margin: 0;
+  padding: 0;
+}
